@@ -24,18 +24,17 @@ const fillDataBase =async()=>{
 const countriesControllers = {
     getAll : async (req,res)=>{
         const {name} = req.query;
-        let dataApi;
         try{
             const contador = await Country.count()
             if (contador===0) await fillDataBase();
             if(name){
-                const countryName = await Country.findAll();
+                const countryName = await Country.findAll(); //{includes:Activity}
                 const filteredByName = countryName.filter(p=>{
                     return p.name.toLowerCase().includes(name.toLowerCase())
                 })
                 return res.status(200).send(filteredByName)
             } else {
-                const countriesDb = await Country.findAll();
+                const countriesDb = await Country.findAll(); //{includes:Activity}
                 return res.status(200).send(countriesDb)
             }
 
