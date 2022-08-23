@@ -1,0 +1,46 @@
+.nav-bar{
+    background-color: #0f141a ;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 50px;
+    padding-left: 8px;
+    padding-right: 8px;
+}
+.searchBar{
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+.search-button{
+    display: flex;
+    justify-content: center;
+    background-color: tomato;
+    border-color: tomato;
+    border-radius: 6px;
+    margin-left: 8px;
+    height: 22px;
+    font-size: 12px;
+    color: whitesmoke;
+    cursor: pointer;
+}
+.search-button:hover{
+    background-color: rgb(224, 51, 20);
+    border-color: rgb(224, 51, 20);
+    transition: 0.5s;
+}
+.button-menu{
+    background-color: #183858;
+    border-radius: 6px;
+    padding-top:3px;
+    padding-bottom: 3px;
+    color: whitesmoke;
+    border:none;
+    cursor: pointer;
+}
+.button-menu:hover{
+    background-color: #11273d;
+}
+.input-search{
+    border-radius: 6px;
+}

@@ -1,0 +1,24 @@
+.container{
+    width: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color:#030b14da;
+    color:whitesmoke;
+    padding: 12px;
+    padding-top: 12px;
+    border-radius: 6px;
+    margin: 12px;
+    height: 375px;
+    cursor: pointer;
+    
+}
+.container:hover{
+    background-color:#04162bda;
+    color:whitesmoke;
+}
+.img-card{
+    height: 90px;
+    width: auto;
+}

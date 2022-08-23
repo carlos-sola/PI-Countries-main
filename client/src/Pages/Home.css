@@ -1,0 +1,10 @@
+.home-page{
+    background: no-repeat url('../assets/fondo-countries-03.jpg');
+    background-position: center;
+    height: 100vh;
+    overflow-y: scroll;
+    color: white;
+}
+.home-page::-webkit-scrollbar {
+    display: none;
+}
