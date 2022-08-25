@@ -26,7 +26,8 @@
 }
 .number:hover{
     text-decoration: none;
-    background-color: #061e38ee;
+    background-color: #4c5157ee;
+    border-color: #4c5157ee ;
     color: whitesmoke;
     max-width: 40px;
     margin: 1px;

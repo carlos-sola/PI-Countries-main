@@ -4,8 +4,8 @@
     justify-content: space-between;
     align-items: center;
     height: 50px;
-    padding-left: 8px;
-    padding-right: 8px;
+    padding-left: 12px;
+    padding-right: 12px;
 }
 .searchBar{
     align-items: center;
@@ -43,4 +43,40 @@
 }
 .input-search{
     border-radius: 6px;
+    background-color: rgb(224, 224, 230);
+    color: rgb(83, 83, 83);
+}
+.country-app{
+    color: rgb(189, 190, 192);
+}
+#navMenu > span {
+    display: block;
+    width: 28px;
+    height: 2px;
+    border-radius: 999px;
+    background-color: rgb(189, 190, 192);
+    cursor: pointer;
+}
+#navMenu > span:not(:last-child){
+    margin-bottom: 7px;
+}
+#navMenu, #navMenu > span {
+    transition: all .4s ease-in-out;
+}
+#navMenu.active{
+    transition-delay: 0.6s;
+    transform: rotate(45deg);
+}
+#navMenu.active > span:nth-child(2){
+    width: 0;
+}
+#navMenu.active >  span:nth-child(1),
+#navMenu.active >  span:nth-child(3) {
+    transition-delay: .4s;
+}
+#navMenu.active >  span:nth-child(1) {
+    transform: translateY(9px);
+}
+#navMenu.active >  span:nth-child(3) {
+    transform: translateY(-9px) rotate(90deg);
 }

@@ -2,13 +2,16 @@ import {React,useEffect, useState} from 'react'
 import Card from './Card'
 import { useSelector } from 'react-redux'
 import { useDispatch } from 'react-redux'
-import{getAllCountries} from '../redux/actions';
+import{getAllCountries, setLoading} from '../redux/actions';
 import './Cards.css'
 import { Link } from 'react-router-dom'
 import Paginado from './Paginado';
+import gif from '../assets/world_flags_globe_2.gif'
 
 export default function Cards (){
     const {showCountries} = useSelector(state=>state)
+    const {loading} = useSelector(state=>state)
+    const dispatch= useDispatch()
     //PAGINADO//
    const [currentPage, setCurrentPage] = useState(1);
    const [countryPerPage, setCountryPerPage] = useState(10);
@@ -19,8 +22,19 @@ export default function Cards (){
    const paginado=(pageNumber)=>{
            setCurrentPage(pageNumber)
    }
+
+    if(loading){
+        return (
+            <div className='loading'>
+                <img  className='gif1' src={gif}/>
+                <span className='text-loading'>Searching...</span>
+            </div>
+        )
+    }
+
     return (
-        
+        <div className='all'>
+
         <div className='cards-wraper'>
             {currentCountry && currentCountry.map(p=>{
                 return <Link className='link-btn' key={p.id} to= {`/detail/${p.id}`} >
@@ -31,6 +45,7 @@ export default function Cards (){
                 />  
                 </Link>
             })}
+        </div>
             <div className='paginado-container'>
                 <Paginado 
             countryPerPage={countryPerPage}
@@ -38,6 +53,6 @@ export default function Cards (){
             paginado={paginado}
             />
             </div>
-        </div>
+            </div>
     )
 }

@@ -13,16 +13,19 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: rgba(0, 0, 0, 0.897);
-    margin-top: 40px;
-    height: 430px ;
+    background-color: rgba(0, 0, 0, 0.644);
+    margin-top: 12px;
+    height: 530px ;
     margin-left: 330px;
     margin-right: 330px;
     border-radius: 12px;
 }
 .detail-container:hover{
-    background-color: rgba(0, 0, 0, 0.952);
-    height: 440px;
+    background-color: rgba(0, 0, 0, 0.788);
+    height: 538px;
+    margin-left: 322px;
+    margin-right: 322px;
+    margin-top: 8px;
 }
 .encabezado{
     display: flex;

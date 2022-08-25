@@ -3,12 +3,40 @@
     width: 100%;
     flex-wrap: wrap;
     justify-content: center;
+    align-items: center;
     padding: 12px;
     padding-bottom: 0px;
     margin-right: 20px;
     margin-top: 8px;
 }
+
 .paginado-container{
-    margin-top: 1px;
-    padding: 1px;
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: center;
+    
+}
+.gif1{
+    height: 50px;
+    width: auto;
+    margin-bottom: 4px;
+    padding-bottom: 8px;
+    padding-right: 8px;
+}
+.loading{
+    padding-top: 330px;
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    padding-left:100px;
+    padding-right: 95px;
+}
+.text-loading{
+    font-size: 18px;
+    font-weight: bolder;
+    margin-right: 8px;
+    color: rgb(51, 52, 54) ;
+    padding-left: 6px;
+    padding-bottom: 14px;
 }

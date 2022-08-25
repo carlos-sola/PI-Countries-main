@@ -15,23 +15,27 @@
     align-items: center;
 }
 .boton-landing{
-    background-color: #d2d2d3;
-    border:none;
-    color:rgb(19, 40, 73);
-    padding: 12px;
-    padding-left: 16px;
-    padding-right: 16px;
-    border-radius: 8px;
-    font-size: 18px;
+    background-color: transparent;
+    color:rgb(115, 119, 122);
+    font-size: 1rem;
+    padding: .7rem .7em;
+    border:2px transparent;
+    border-radius: .5rem;
     cursor: pointer;
+    transition: all 1s ease;
+    box-shadow: .5rem .5rem 1rem rgb(175, 175, 175),
+     -.5rem -.5rem 1rem rgb(240, 239, 239);
 }
 .boton-landing:hover{
-    transition: 0.4s;
-    background-color:#AEB6BF ;
-    color: #283747 ;
+    box-shadow: .5rem .5rem 1rem rgb(240, 239, 239),
+     -.5rem -.5rem 1rem #ccc;
+}
+.boton-landing:active{
+    box-shadow: inset .2rem .2rem 1rem #fff,
+     inset -.2rem -.2rem 1rem #ccc;
 }
 .gif{
-    height: 24px;
+    height: 20px;
     width: auto;
-    margin-bottom: 20px;
+    margin-bottom: 16px;
 }
