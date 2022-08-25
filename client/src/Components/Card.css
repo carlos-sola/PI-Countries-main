@@ -1,24 +1,32 @@
 .container{
-    width: 250px;
+    width: 210px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color:#030b14da;
+    background-color:#030b14b9;
     color:whitesmoke;
-    padding: 12px;
-    padding-top: 12px;
+    padding: 4px;
+    padding-top: 8px;
     border-radius: 6px;
-    margin: 12px;
-    height: 375px;
+    margin: 8px;
+    height: 210px;
     cursor: pointer;
     
 }
 .container:hover{
-    background-color:#04162bda;
+    background-color:#010508fb;
     color:whitesmoke;
+    width: 220px;
+    height: 220px;
+    margin: 0px;
+    transition: 0.5s;
 }
 .img-card{
-    height: 90px;
+    height: 60px;
     width: auto;
+}
+.name-country{
+    margin: 4px;
+    padding: 2px;
 }

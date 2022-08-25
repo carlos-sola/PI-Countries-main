@@ -1,0 +1,37 @@
+.paginado{
+    display: flex;
+    justify-content: space-between;
+    text-decoration: none;
+    padding-top: 2px;
+    padding-bottom: 2px;
+}
+.number{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    background-color: #0f141afa;
+    border-radius: 2px;
+    border-color:#0f141af8;
+    color:whitesmoke;
+    box-shadow: none;
+    max-width: 30px;
+    margin: 1px;
+    padding: 6px 12px;
+    font-weight: 500;
+    cursor: pointer;
+    justify-content: center;
+    align-items: center;
+
+}
+.number:hover{
+    text-decoration: none;
+    background-color: #061e38ee;
+    color: whitesmoke;
+    max-width: 40px;
+    margin: 1px;
+    cursor: pointer;
+    -webkit-transition: all 0.4s;
+    -moz-transition: all 0.4s;
+    transition: all 0.4s;
+}

@@ -8,6 +8,12 @@
     flex-direction: column;
     justify-content: center;
 }
+.fondo-landing{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
 .boton-landing{
     background-color: #d2d2d3;
     border:none;
@@ -23,4 +29,9 @@
     transition: 0.4s;
     background-color:#AEB6BF ;
     color: #283747 ;
+}
+.gif{
+    height: 24px;
+    width: auto;
+    margin-bottom: 20px;
 }

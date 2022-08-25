@@ -1,0 +1,55 @@
+.detail-wraper{
+    background: no-repeat url('../assets/fondo-countries-03.jpg');
+    background-position: center;
+    height: 100vh;
+    overflow-y: scroll;
+    color: white;
+}
+.detail-wraper::-webkit-scrollbar {
+    display: none;
+}
+.detail-container{
+    flex-direction: column;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.897);
+    margin-top: 40px;
+    height: 430px ;
+    margin-left: 330px;
+    margin-right: 330px;
+    border-radius: 12px;
+}
+.detail-container:hover{
+    background-color: rgba(0, 0, 0, 0.952);
+    height: 440px;
+}
+.encabezado{
+    display: flex;
+    justify-content: space-between;
+    margin: 12px
+}
+.p-info{
+    margin-top: 4px;
+    margin-bottom: 4px;
+}
+.detail-btn{
+    display: flex;
+    justify-content: center;
+    background-color: tomato;
+    border-color: tomato;
+    border-radius: 6px;
+    margin-left: 8px;
+    height: 22px;
+    font-size: 12px;
+    color: whitesmoke;
+    cursor: pointer;
+}
+.detail-btn:hover{
+    background-color: rgb(224, 51, 20);
+    border-color: rgb(224, 51, 20);
+    transition: 0.5s;
+}
+.link-btn{
+    text-decoration: none;
+}

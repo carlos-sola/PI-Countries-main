@@ -45,8 +45,8 @@ const countriesControllers = {
     getById : async (req,res) =>{
         const {id} = req.params ;
         try{
-            const countryById = await axios.get(`https://restcountries.com/v3/name/${id}`);
-            res.status(200).send({results: countryById.data})
+            const countryById = await Country.findByPk(id);
+            res.status(200).send(countryById)
         }catch(err){
             res.status(400).send({err:err.message})
         }

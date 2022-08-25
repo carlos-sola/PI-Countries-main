@@ -3,7 +3,8 @@ import {GET_ALL_COUNTRIES, GET_BY_NAME,GET_BY_ID} from './actions'
 
 const initialState={
     allCountries:[],
-    showCountries:[]
+    showCountries:[],
+    countryDetail:{}
 };
 
 const rootReducers =(state=initialState,action)=>{
@@ -22,7 +23,7 @@ const rootReducers =(state=initialState,action)=>{
         case GET_BY_ID:
             return{
                 ...state,
-                showCountries: action.payload
+                countryDetail: action.payload
             }
    }
    return state
