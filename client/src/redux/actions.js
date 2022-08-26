@@ -3,6 +3,8 @@ export const  GET_ALL_COUNTRIES = 'GET_ALL_COUNTRIES'
 export const GET_BY_NAME = 'GET_BY_NAME'
 export const GET_BY_ID = 'GET_BY_ID'
 export const SET_LOADING= 'SET_LOADING'
+export const FILTER_BY_CONTINENT= 'FILTER_BY_CONTINENT'
+export const FILTER_A_Z='FILTER_A_Z'
 
 
 export function getAllCountries (){
@@ -35,6 +37,18 @@ export function getById (id){
 export function setLoading (payload){
     return {
         type:SET_LOADING,
+        payload
+    }
+};
+export function filterByContinent (payload){
+    return{
+        type:FILTER_BY_CONTINENT,
+        payload
+    }
+};
+export function orderAz (payload){
+    return{
+        type:FILTER_A_Z,
         payload
     }
 }

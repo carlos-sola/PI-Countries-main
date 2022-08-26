@@ -1,11 +1,16 @@
-import {GET_ALL_COUNTRIES, GET_BY_NAME,GET_BY_ID,SET_LOADING} from './actions'
+import {GET_ALL_COUNTRIES, GET_BY_NAME,GET_BY_ID,SET_LOADING,FILTER_A_Z} from './actions'
 
 
 const initialState={
     allCountries:[],
     showCountries:[],
     countryDetail:{},
-    loading:false
+    loading:false,
+    filter:{
+        continent:'',
+        activities:'',
+    }
+ //TODO: como filtrar por varios continentes a la vez
 };
 
 const rootReducers =(state=initialState,action)=>{
@@ -35,6 +40,19 @@ const rootReducers =(state=initialState,action)=>{
                 loading:true
 
             }
+        // case FILTER_BY_CONTINENT:
+        //     const allCountries = state.showCountries;
+        //     const filterContinent= allCountries.filter((el)=>{
+        //         return el.continent.find(e => e === action.payload)
+        //     })
+        //     return {
+        //         ...state,
+        //         showCountries:[...filterContinent]
+        //     }
+        case FILTER_A_Z :
+            return{
+
+            } 
    }
    return state
 }

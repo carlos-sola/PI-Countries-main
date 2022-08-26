@@ -18,25 +18,25 @@
     
 }
 .gif1{
-    height: 50px;
+    height: 60px;
     width: auto;
     margin-bottom: 4px;
     padding-bottom: 8px;
     padding-right: 8px;
 }
 .loading{
-    padding-top: 330px;
+    padding-top: 230px;
     display: flex;
     justify-content: center;
     align-items:center;
-    padding-left:100px;
+    padding-left:70px;
     padding-right: 95px;
 }
 .text-loading{
-    font-size: 18px;
+    font-size: 22px;
     font-weight: bolder;
     margin-right: 8px;
     color: rgb(51, 52, 54) ;
-    padding-left: 6px;
+    padding-left: 2px;
     padding-bottom: 14px;
 }

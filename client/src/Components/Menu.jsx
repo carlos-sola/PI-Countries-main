@@ -3,34 +3,29 @@ import './Menu.css'
 
 export default function Menu({menu}){
     return  (
-    <div className={`menu-container ${menu ? "open" : ""}`}>
-        {/* <label>Ordenamiento</label>
-        <select className="input-form" onChange={handleSort}>
-            <option value="Z-A">Z-A</option>
-            <option value="A-Z">A-Z</option>
-            <option value="AscRating">Rating Asc</option>
-            <option value="DescRating">Rating Desc</option>
-        </select>
-        <br/>
-        <label>filtrar por Géneros</label>
-        <select className="input-form" onChange={handleSelect}>
-        <option key="All" value="All">All</option>
-        {genders?.map(e => {
-                    return <option key={e.name} value={e.name}>{e.name}</option>
-
-                })}
-        </select>
-        <br/>
-        <label>Filtrar por Origen</label>
-        <select className="input-form" onChange={handleFilter}>
-            <option value="All">All</option>
-            <option value="Created">Creados</option>
-            <option value="Existentes">Existentes</option>
-        </select>
-        <br/>
-        <button className="limpiar-filtros" onClick={resteFilters}>LIMPIAR FILTROS</button>
-        <br/>
-        <Link to="/home/create" className="to-create"><button className="btn-create">CREAR VIDEOGAME</button></Link> */}
+    <div className={`menu-container ${menu ? "open" : ""}`}> 
+            <div className='box'>
+                <label>Filter : </label>
+                <select className='input'>
+                    <option value='byContinent'>By Continent</option>
+                    <option value='byActivity'>By Activities</option>
+                </select>
+            </div>
+            <div className='box'>
+            <label>Sort : </label>
+            <select className='input'>
+                <option value='a-z'>A-Z</option>
+                <option value='z-a'>Z-A</option>
+                <option value='pop-asc'>Population asc</option>
+                <option value='pop-dec'>Population dec</option>
+            </select>
+            </div>
+            <div className='box'>
+            <button className="create-activity">Create activity</button>
+            </div>
+            <div className='box'>
+            <button className="Filter-reset">Filter reset</button>
+            </div>
     </div>)
 
     

@@ -3,13 +3,13 @@
     flex-direction: column;
     justify-content:space-around;
     align-items: center;
-    width: 232px;
-    height: 192px;
+    width: 216px;
+    height: 120px;
     position: fixed;
     top: 50px;
     left: 100%;
     color: rgb(189, 190, 192);
-    background-color: #181f27 ;
+    background-color: #222d3a ;
     transition: all 0.5s ease-in-out;
     text-decoration: none;
     border-bottom-left-radius: 8px;
@@ -21,4 +21,30 @@
 }
 .menu-container.open{
     transform: translateX(-95%);
+}
+.input{
+    background-color: #202a35;
+    color: rgb(189, 190, 192);
+}
+.box{
+    background-color: #222d3a;
+    height: 40px;
+    margin: 0.5px;
+    padding:14px;
+}
+.Filter-reset{
+    border-radius: 6px;
+    height: 32px;
+    width: 140px;
+    background-color: firebrick;
+    border-color: firebrick;
+    color: rgb(236, 235, 235);
+}
+.create-activity{
+    border-radius: 6px;
+    height: 32px;
+    width: 140px;
+    background-color: #224061 ;
+    border-color:#224061 ;
+    color: rgb(236, 235, 235);
 }
