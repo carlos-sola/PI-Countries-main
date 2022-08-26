@@ -3,11 +3,13 @@ export const  GET_ALL_COUNTRIES = 'GET_ALL_COUNTRIES'
 export const GET_BY_NAME = 'GET_BY_NAME'
 export const GET_BY_ID = 'GET_BY_ID'
 export const SET_LOADING= 'SET_LOADING'
-export const FILTER_BY_CONTINENT= 'FILTER_BY_CONTINENT'
+export const FILTER= 'FILTER'
 export const FILTER_A_Z='FILTER_A_Z'
+export const  FILTERED='FILTERED'
 
 
 export function getAllCountries (){
+    console.log("get all contries")
     return async function (dispatch){
         const json = await axios.get('http://localhost:3001/countries');
         return dispatch({
@@ -17,6 +19,7 @@ export function getAllCountries (){
     }
 };
 export function getByName (name){
+    console.log("getByName")
     return async function (dispatch){
         const json = await axios.get(`http://localhost:3001/countries?name=${name}`)
         return dispatch({
@@ -40,15 +43,14 @@ export function setLoading (payload){
         payload
     }
 };
-export function filterByContinent (payload){
+export function setFilter (payload){
     return{
-        type:FILTER_BY_CONTINENT,
+        type:FILTER,
         payload
     }
 };
-export function orderAz (payload){
+export function filtered (){
     return{
-        type:FILTER_A_Z,
-        payload
+        type:FILTERED ,
     }
 }

@@ -1,15 +1,36 @@
 import React from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { filtered, setFilter } from "../redux/actions";
 import './Menu.css'
 
 export default function Menu({menu}){
+    const dispatch= useDispatch();
+    function handleSelect(e){
+        dispatch(setFilter({[e.target.name]:e.target.value}));
+    }
+    
     return  (
     <div className={`menu-container ${menu ? "open" : ""}`}> 
+            <h5 className='title-f'>Filters</h5>
             <div className='box'>
-                <label>Filter : </label>
-                <select className='input'>
-                    <option value='byContinent'>By Continent</option>
-                    <option value='byActivity'>By Activities</option>
+                <label>Continents : </label>
+                <select name='continent' className='input' onChange={handleSelect}>    
+                    <option value='Africa'>Africa</option>
+                    <option value='Antarctica'>Antarctica</option>
+                    <option value='Asia'>Asia</option>
+                    <option value='Europe'>Europe</option>
+                    <option value='North America'>North America</option>
+                    <option value='South America'>South America</option>
+                    <option value='Oceania'>Oceania</option>
                 </select>
+            </div>
+            <div className='box'>
+                <label>Activities : </label>
+                    <select name='activity' className='input' onSelect={handleSelect}>
+                        <option value='runing'>Running</option>
+                        <option value='siding'>Riding</option>
+                        <option value='swimming'>Swimming</option>
+                    </select>
             </div>
             <div className='box'>
             <label>Sort : </label>
@@ -30,3 +51,4 @@ export default function Menu({menu}){
 
     
 }
+

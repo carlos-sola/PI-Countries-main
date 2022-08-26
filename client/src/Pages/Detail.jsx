@@ -39,11 +39,11 @@ export default function Detail(){
             <img src={detail?.image? detail.image:'searching...'}/>
             <h4>{detail?.name? detail.name:''}</h4>
             <div className='info-detail'>
-                <p className='p-info'>Continent: {detail?.continent? detail.continent.map(e=>{
-                    return <span>{e} </span>
+                <p className='p-info'>Continent: {detail?.continent? detail.continent.map((e,g)=>{
+                    return <span key={g}>{e} </span>
                 }):''}</p>
-                <p className='p-info'>Capital: {detail.capital ? detail.capital.map(e=>{
-                    return <span>{e} </span>
+                <p className='p-info'>Capital: {detail.capital ? detail.capital.map((e,g)=>{
+                    return <span key={g}>{e} </span>
                 }):''}</p>
                 <p className='p-info'>Subregion: {detail?.subregion}</p>
                 <p className='p-info'>Area: {detail?.area? detail.area:''} km</p>

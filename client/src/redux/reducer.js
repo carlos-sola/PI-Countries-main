@@ -1,4 +1,4 @@
-import {GET_ALL_COUNTRIES, GET_BY_NAME,GET_BY_ID,SET_LOADING,FILTER_A_Z} from './actions'
+import {GET_ALL_COUNTRIES, GET_BY_NAME,GET_BY_ID,SET_LOADING,FILTER,FILTERED, filtered} from './actions'
 
 
 const initialState={
@@ -8,7 +8,7 @@ const initialState={
     loading:false,
     filter:{
         continent:'',
-        activities:'',
+        activity:'',
     }
  //TODO: como filtrar por varios continentes a la vez
 };
@@ -40,20 +40,30 @@ const rootReducers =(state=initialState,action)=>{
                 loading:true
 
             }
-        // case FILTER_BY_CONTINENT:
-        //     const allCountries = state.showCountries;
-        //     const filterContinent= allCountries.filter((el)=>{
-        //         return el.continent.find(e => e === action.payload)
-        //     })
-        //     return {
-        //         ...state,
-        //         showCountries:[...filterContinent]
-        //     }
-        case FILTER_A_Z :
-            return{
+        case FILTER:
+            return {
+                ...state,
+                filter :{
+                        ...state.filter,
+                        ...action.payload
+                        /*...action.payload = ...{continent: value}  = continent: value*/
+                }
+            }
+        case FILTERED:
+            const all = state.allCountries;
+            const filteredByContinent= state.filter.continent === "" ? all : all.filter(e=>{
+                return e.continent.map(g=>g).includes(state.filter.continent) 
+            });
+            const filteredByActivity= state.filter.activity === "" ? filteredByContinent : filteredByContinent.filter(e=>{
+                return e.activity.map(g=>g).includes(state.filter.activity) 
+            })
 
-            } 
+            return {
+                ...state,
+                showCountries:[...filteredByActivity]
+            }
    }
    return state
 }
 export default rootReducers;
+
