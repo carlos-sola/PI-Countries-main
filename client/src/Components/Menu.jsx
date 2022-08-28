@@ -1,6 +1,7 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { filtered, setFilter } from "../redux/actions";
+import { Link } from "react-router-dom";
+import { filtered, resetFilter, setFilter, sortAtoZ } from "../redux/actions";
 import './Menu.css'
 
 export default function Menu({menu}){
@@ -8,10 +9,16 @@ export default function Menu({menu}){
     function handleSelect(e){
         dispatch(setFilter({[e.target.name]:e.target.value}));
     }
-    
+    function handleOnChange (e){
+        dispatch(sortAtoZ(e.target.value))
+    }
+    function handleReset(){
+        dispatch (resetFilter())
+    }
     return  (
     <div className={`menu-container ${menu ? "open" : ""}`}> 
             <h5 className='title-f'>Filters</h5>
+            
             <div className='box'>
                 <label>Continents : </label>
                 <select name='continent' className='input' onChange={handleSelect}>    
@@ -24,6 +31,7 @@ export default function Menu({menu}){
                     <option value='Oceania'>Oceania</option>
                 </select>
             </div>
+            
             <div className='box'>
                 <label>Activities : </label>
                     <select name='activity' className='input' onSelect={handleSelect}>
@@ -32,20 +40,25 @@ export default function Menu({menu}){
                         <option value='swimming'>Swimming</option>
                     </select>
             </div>
+            
             <div className='box'>
             <label>Sort : </label>
-            <select className='input'>
-                <option value='a-z'>A-Z</option>
-                <option value='z-a'>Z-A</option>
-                <option value='pop-asc'>Population asc</option>
-                <option value='pop-dec'>Population dec</option>
+            <select className='input' onChange={handleOnChange}>
+                <option value='A-Z'>A-Z</option>
+                <option value='Z-A'>Z-A</option>
+                <option value='ascPopulation'>Population asc</option>
+                <option value='descPopulation'>Population dec</option>
             </select>
             </div>
+            
             <div className='box'>
-            <button className="create-activity">Create activity</button>
+            <Link to='create'>
+                <button className="create-activity">Create activity</button>
+                </Link>
             </div>
+
             <div className='box'>
-            <button className="Filter-reset">Filter reset</button>
+            <button className="Filter-reset" onClick={handleReset}>Filter reset</button>
             </div>
     </div>)
 

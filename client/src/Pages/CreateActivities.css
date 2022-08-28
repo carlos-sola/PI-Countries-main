@@ -1,0 +1,15 @@
+.create-videogame{
+    background-image: url("../assets/fono-countries-02.jpg");
+    background-position: center;
+    background-size: 100%;
+    min-height: 100vh;
+    max-height: 100vh;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+    font-size: 20px;
+    font-style:inherit;
+
+}

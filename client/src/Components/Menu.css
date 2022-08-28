@@ -40,6 +40,14 @@
     border-color: firebrick;
     color: rgb(236, 235, 235);
 }
+.Filter-reset:hover{
+    background-color: rgb(116, 25, 25);
+    border-color: rgb(116, 25, 25);
+}
+.Filter-reset:active{
+    background-color: rgb(78, 16, 16);
+    border-color: rgb(78, 16, 16);
+}
 .create-activity{
     border-radius: 6px;
     height: 32px;
@@ -48,7 +56,17 @@
     border-color:#224061 ;
     color: rgb(236, 235, 235);
 }
+.create-activity:hover{
+    background-color: #1b334d ;
+    border-color:#1b334d;
+}
+.create-activity:active{
+    background-color: #13273b ;
+    border-color:#13273b ;
+    box-shadow: none;
+}
 .title-f{
     margin: 0px;
     font-size: 14px;
+    box-shadow: none;
 }

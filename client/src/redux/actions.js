@@ -6,6 +6,8 @@ export const SET_LOADING= 'SET_LOADING'
 export const FILTER= 'FILTER'
 export const FILTER_A_Z='FILTER_A_Z'
 export const  FILTERED='FILTERED'
+export const RESET_FILTER='RESET_FILTER'
+export const SORT_A_Z = "SORT_A_Z";
 
 
 export function getAllCountries (){
@@ -53,4 +55,15 @@ export function filtered (){
     return{
         type:FILTERED ,
     }
+};
+export function resetFilter () {
+    return{
+        type:RESET_FILTER
+    }
 }
+export function sortAtoZ(payload){
+    return{
+      type:SORT_A_Z,
+      payload
+    }
+  }

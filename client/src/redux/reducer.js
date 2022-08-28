@@ -1,4 +1,4 @@
-import {GET_ALL_COUNTRIES, GET_BY_NAME,GET_BY_ID,SET_LOADING,FILTER,FILTERED, filtered} from './actions'
+import {GET_ALL_COUNTRIES, GET_BY_NAME,GET_BY_ID,SET_LOADING,FILTER,FILTERED,RESET_FILTER,SORT_A_Z} from './actions'
 
 
 const initialState={
@@ -62,6 +62,71 @@ const rootReducers =(state=initialState,action)=>{
                 ...state,
                 showCountries:[...filteredByActivity]
             }
+        case RESET_FILTER:
+            return{
+                ...state,
+                filter:{
+                    continent:'',
+                    activity:'',
+                }
+                
+            }
+        
+        case SORT_A_Z:
+                const allSort = state.allCountries
+                const sortAz = action.payload==='Z-A' ? allSort.sort((a,b)=>{
+                    let A = a.name.toLowerCase();
+                    let B = b.name.toLowerCase();
+                    if(A == B) {
+                        return 0; 
+                      }
+                    if(A > B) {
+                        return -1;
+                      }
+                      if(A < B) {
+                        return 1;
+                      }
+                      }) : action.payload==='A-Z' ? allSort.sort((a,b)=>{
+                        let A = a.name.toLowerCase();
+                        let B = b.name.toLowerCase();
+                    if(A == B) {
+                        return 0; 
+                      }
+                    if(A < B) {
+                        return -1;
+                      }
+                      if(A > B) {
+                        return 1;
+                      }
+                }) : action.payload==='ascPopulation' ?  allSort.sort((a,b)=>{
+                    let A = a.population
+                    let B = b.population
+                if(A == B) {
+                    return 0; 
+                  }
+                if(A < B) {
+                    return -1;
+                  }
+                  if(A > B) {
+                    return 1;
+                  }
+            }) : action.payload==='descPopulation' &&  allSort.sort((a,b)=>{
+                let A = a.population
+                let B = b.population
+            if(A == B) {
+                return 0; 
+              }
+            if(A > B) {
+                return -1;
+              }
+              if(A < B) {
+                return 1;
+              }
+        })
+                return {
+                    ...state,
+                    showCountries: [...sortAz]
+                }   
    }
    return state
 }
