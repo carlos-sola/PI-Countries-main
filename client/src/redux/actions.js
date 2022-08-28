@@ -67,3 +67,8 @@ export function sortAtoZ(payload){
       payload
     }
   }
+  export function createActivity (payload){
+      return async function (dispatch){
+          return await axios.post('http://localhost:3001/activity',payload)
+      }
+  }

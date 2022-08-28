@@ -51,6 +51,7 @@ export default function Cards (){
             countryPerPage={countryPerPage}
             showCountries={showCountries.length}
             paginado={paginado}
+            currentPage={currentPage}
             />
             </div>
             </div>
