@@ -13,3 +13,81 @@
     font-style:inherit;
 
 }
+.encabezado{
+    background-color: rgba(175, 175, 175, 0.603) ;
+    color: #222d3a ;
+    border-radius: 16px;
+    padding: 8px;
+    padding-left: 8px;
+    padding-right: 8px;
+    margin-bottom: 28px;
+}
+.formulario{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    background-color: rgba(175, 175, 175, 0.603);
+    color: #222d3a ;
+    padding-top: 22px;
+    padding-left: 12px;
+    padding-right: 18px;
+    border-radius: 12px;
+    min-height: 280px;
+}
+.input-container{
+    display: flex;
+    align-items: center;
+    padding-bottom: 24px;
+}
+.input-form{
+    margin-left: 12px;
+    background-color:rgba(134, 133, 133, 0.404) ;
+    color: #222d3a ;
+    border-radius: 8px;
+    padding-left: 8px;
+}
+.btn-crear{
+    background-color:#224061 ;
+    border-color:#224061  ;
+    color:whitesmoke;
+    border-radius: 8px;
+    width: 90px;
+    height: 30px;
+    cursor: pointer;
+    margin-left: 12px;
+    font-size: 14px;
+}
+.btn-crear:hover{
+    background-color: rgb(28, 134, 33);
+    border-color:rgb(28, 134, 33) ;
+    color:whitesmoke;
+    transition: 0.5s;
+
+}
+.buton-atras{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    background-color:rgb(182, 21, 21);
+    color:whitesmoke;
+    border-color: rgb(182, 21, 21);
+    margin-left: 8px;
+    border-radius: 8px;
+    width: 90px;
+    height: 30px;
+    cursor: pointer;
+    font-size: 12px;
+    padding-left: 28px;
+    font-size: 14px;
+}
+.buton-atras:hover{
+    border-color:rgb(151, 17, 17) ;
+    background-color: rgb(151, 17, 17) ;
+    color: whitesmoke;
+    transition: 0.5s;
+}
+.linkbt{
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+}

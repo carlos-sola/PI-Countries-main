@@ -32,7 +32,7 @@ export default function Detail(){
     return(
         
     <div className='detail-wraper'>
-        <div className='encabezado'>   
+        <div className='encabezado1'>   
             <Link to='/home' className='link-btn'><button className='detail-btn'>back</button></Link>
         </div> 
         <div className='detail-container'>
