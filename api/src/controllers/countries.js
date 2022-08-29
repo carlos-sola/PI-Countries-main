@@ -1,6 +1,6 @@
 
 const axios = require ('axios');
-const {Country} = require ('../db')
+const {Country, Activity} = require ('../db')
 
 const fillDataBase =async()=>{
     const resApi = await axios.get('https://restcountries.com/v3/all');
@@ -28,13 +28,13 @@ const countriesControllers = {
             const contador = await Country.count()
             if (contador===0) await fillDataBase();
             if(name){
-                const countryName = await Country.findAll(); //{includes:Activity}
+                const countryName = await Country.findAll({include:Activity}); //{include:Activity}
                 const filteredByName = countryName.filter(p=>{
                     return p.name.toLowerCase().includes(name.toLowerCase())
                 })
                 return res.status(200).send(filteredByName)
             } else {
-                const countriesDb = await Country.findAll(); //{includes:Activity}
+                const countriesDb = await Country.findAll({include:Activity}); //{include:Activity}
                 return res.status(200).send(countriesDb)
             }
 
@@ -45,7 +45,7 @@ const countriesControllers = {
     getById : async (req,res) =>{
         const {id} = req.params ;
         try{
-            const countryById = await Country.findByPk(id);
+            const countryById = await Country.findByPk(id, {include:Activity});
             res.status(200).send(countryById)
         }catch(err){
             res.status(400).send({err:err.message})

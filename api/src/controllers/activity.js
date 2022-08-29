@@ -30,6 +30,15 @@ const {Country} = require('../db');
             res.status(400).send({error:error.message})
          }
          
+     },
+     getAllActivity : async (req,res)=>{
+         try{
+            const allactivities = await Activity.findAll({include:Country})
+         return res.status(200).send(allactivities)
+         } catch(err) {
+             res.status(500).send({error:err.message})
+         }
+         
      }
  };
 

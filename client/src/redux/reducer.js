@@ -1,4 +1,4 @@
-import {GET_ALL_COUNTRIES, GET_BY_NAME,GET_BY_ID,SET_LOADING,FILTER,FILTERED,RESET_FILTER,SORT_A_Z} from './actions'
+import {GET_ALL_COUNTRIES, GET_BY_NAME,GET_BY_ID,SET_LOADING,FILTER,FILTERED,RESET_FILTER,SORT_A_Z,GET_ALL_ACTIVITIES} from './actions'
 
 
 const initialState={
@@ -9,7 +9,8 @@ const initialState={
     filter:{
         continent:'',
         activity:'',
-    }
+    },
+    activities:[]
  //TODO: como filtrar por varios continentes a la vez
 };
 
@@ -126,7 +127,12 @@ const rootReducers =(state=initialState,action)=>{
                 return {
                     ...state,
                     showCountries: [...sortAz]
-                }   
+                } 
+        case GET_ALL_ACTIVITIES :
+            return{
+                ...state,
+                activities: action.payload
+            }
    }
    return state
 }

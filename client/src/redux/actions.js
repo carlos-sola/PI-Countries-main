@@ -8,10 +8,11 @@ export const FILTER_A_Z='FILTER_A_Z'
 export const  FILTERED='FILTERED'
 export const RESET_FILTER='RESET_FILTER'
 export const SORT_A_Z = "SORT_A_Z";
+export const GET_ALL_ACTIVITIES='GET_ALL_ACTIVITIES'
+
 
 
 export function getAllCountries (){
-    console.log("get all contries")
     return async function (dispatch){
         const json = await axios.get('http://localhost:3001/countries');
         return dispatch({
@@ -21,7 +22,6 @@ export function getAllCountries (){
     }
 };
 export function getByName (name){
-    console.log("getByName")
     return async function (dispatch){
         const json = await axios.get(`http://localhost:3001/countries?name=${name}`)
         return dispatch({
@@ -72,3 +72,13 @@ export function sortAtoZ(payload){
           return await axios.post('http://localhost:3001/activity',payload)
       }
   }
+  export function getAllActivity (){
+      return async function (dispatch){
+          const json = await axios.get('http://localhost:3001/activity')
+          return dispatch({
+              type:GET_ALL_ACTIVITIES,
+              payload:json.data
+          })
+      }
+  }
+  

@@ -4,7 +4,7 @@ import NavBar from '../Components/NavBar';
 import './Home.css';
 import Cards from '../Components/Cards';
 import { useDispatch, useSelector } from 'react-redux'
-import{filtered, getAllCountries, setLoading} from '../redux/actions'
+import{filtered, getAllActivity, getAllCountries, setLoading} from '../redux/actions'
 
 
 
@@ -21,6 +21,9 @@ export default function Home(){
     useEffect(()=>{
         dispatch(filtered())
     },[filter])
+    useEffect(()=>{
+        dispatch(getAllActivity());
+    },[])
     return (
         <div className='home-page'>
             <NavBar/>

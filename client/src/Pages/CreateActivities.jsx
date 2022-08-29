@@ -1,32 +1,112 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import './CreateActivities.css'
+import React, { useEffect, useState } from "react";
+import { Link,useHistory } from "react-router-dom";
+import { createActivity, getAllCountries, } from "../redux/actions";
+import './CreateActivities.css';
+import { useDispatch, useSelector } from 'react-redux';
 
 
 export default function CreateActivity  () {
+    function validate(newAct) {
+        let errors = {}
+        if (!newAct.name) {
+            errors.name = "Complete name of activity"
+        } else if (!newAct.hardness) {
+            errors.hardness = "Complete hardness"
+        } else if (!newAct.duration) {
+            errors.duration = "Complete duration"
+        } else if (!newAct.season.length) {
+            errors.season = "Complete season"
+        } else if (!newAct.country.length) {
+            errors.country = "Complete country"
+        }
+        return errors
+    }
+    const history = useHistory()
+    const dispatch = useDispatch()
+    const[errors,setErrors] = useState()
     const [newActivity,setNewActivity] = useState({
         name:"",
         hardness:"",
         duration:"",
-        season:""
+        season:[],
+        country:[]
     });
+
     function handleChange (e){
         setNewActivity({
             ...newActivity,
-            [e.target.value]: e.target.value
+            [e.target.name]: e.target.value
         });
-    }
+        setErrors(validate({
+            ...newActivity,
+            [e.target.name]: e.target.value
+        }
+        ))
+    };
     function handleSelect (e){
+        e.preventDefault();
+        if(!newActivity[e.target.name].includes(e.target.value)){
+            setNewActivity({
+                ...newActivity,
+                [e.target.name]: [...newActivity[e.target.name], e.target.value]
+            })
+        };
+        setErrors(validate({
+            ...newActivity,
+            [e.target.name]: e.target.value
+        }
+        ))
+    };
+    function handleDelete (e,el){
+        e.preventDefault();
         setNewActivity({
             ...newActivity,
-            [e.target.name]: [...newActivity[e.target.name], e.target.value]
+            [e.target.name]: newActivity[e.target.name].filter((p)=>{
+                return p !=el
+            })
         })
     }
+    function handleSubmit(e){
+        e.preventDefault();
+        if(!Object.keys(errors).length){
+        dispatch(createActivity(newActivity));
+        setNewActivity({
+            name:"",
+            hardness:"",
+            duration:"",
+            season:[] ,
+            country:[]
+        });
+        alert('successfully created');
+        history.push('/home')
+    }else{
+        alert ('Error! The activity is not created')
+    };
+};
+
+useEffect(()=>{
+    dispatch(getAllCountries());
+},[]);
+const {showCountries} = useSelector(state=>state);
+showCountries?.sort((a,b)=>{
+    let A = a.name.toLowerCase();
+    let B = b.name.toLowerCase();
+if(A == B) {
+    return 0; 
+  }
+if(A < B) {
+    return -1;
+  }
+  if(A > B) {
+    return 1;
+  }
+})
+
  return (
     <div className='create-videogame'>
         <h4 className='encabezado'>Create Activity</h4>
         <div className="titulo-create">
-            <form className='formulario'>
+            <form className='formulario' onSubmit={(e)=>handleSubmit(e)}>
             <div className='input-container'>
             <label className="name-form"> Name: </label>
             <input className="input-form" type="text" name="name" value={newActivity.name} onChange={handleChange} required/>
@@ -43,17 +123,43 @@ export default function CreateActivity  () {
 
             <div className='input-container'>
             <label className="name-form"> Season: </label>
-            <select className="input-form" type="text" name="season" value={newActivity.season} onChange={handleSelect} required>
-                <option key='spring' value='Spring'>Spring</option>
-                <option key='sumer' value='Summer'>Summer</option>
-                <option key='autumn' value='Autumn'>Autumn</option>
-                <option key='winter' value='Winter'>Winter</option>
+            <select className="input-form"  name="season"  onChange={(e)=>handleSelect(e)} required>
+                <option>-Select-</option>
+                <option key='spring' value='spring'>spring</option>
+                <option key='sumer' value='summer'>summer</option>
+                <option key='autumn' value='autumn'>autumn</option>
+                <option key='winter' value='winter'>winter</option>
             </select>
-            <br/>
+            <div className="container-platform-label">
+            { newActivity.season.map((el)=>{
+                return <div className="platform-Label"> 
+                    <p>{el}</p>
+                    <button name='season' className="delete-buton-label" onClick={(e)=>handleDelete(e,el)}>x</button>
+                </div>
+            })}
+            </div>
             </div>
             <div className='input-container'>
+            <label className="name-form"> Country: </label>
+            <select className="input-country"  name="country"  onChange={(e)=>handleSelect(e)} required>
+                {showCountries?.map((d)=>{
+                    return <option key={d.name} value={d.name}>{d.name}</option>
+                })
+            }
+            </select>
+            <div className="container-platform-label">
+            { newActivity.country.map((el)=>{
+                return <div className="platform-Label"> 
+                    <p>{el}</p>
+                    <button name='country' className="delete-buton-label" onClick={(e)=>handleDelete(e,el)}>x</button>
+                </div>
+            })}
+            </div>
+            </div>
+
+            <div className='input-container'>
                 <Link to="/home" className='linkbt'><button className='buton-atras'>Back</button></Link>
-                <button type="submit" className='btn-crear'>Creat</button>
+                <button type="submit" className='btn-crear'>Create</button>
             </div>
             </form>
         </div>
@@ -63,8 +169,3 @@ export default function CreateActivity  () {
     </div>
  )
 }
-// ID
-// Nombre
-// Dificultad (Entre 1 y 5)
-// Duración
-// Temporada (Verano, Otoño, Invierno o Primavera)

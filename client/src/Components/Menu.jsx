@@ -15,13 +15,20 @@ export default function Menu({menu}){
     function handleReset(){
         dispatch (resetFilter())
     }
+    const {activities}=useSelector(state=>state);
+    // const seasonactivities=activities;
+    // const seasonSinDuplicado = []
+    //  seasonSinDuplicado = [...new Set(seasonactivities)]
+    //  console.log(seasonactivities);
+    //  console.log(seasonSinDuplicado)
     return  (
     <div className={`menu-container ${menu ? "open" : ""}`}> 
             <h5 className='title-f'>Filters</h5>
             
             <div className='box'>
                 <label>Continents : </label>
-                <select name='continent' className='input' onChange={handleSelect}>    
+                <select name='continent' className='input' onChange={handleSelect}>   
+                    <option>-Select-</option> 
                     <option value='Africa'>Africa</option>
                     <option value='Antarctica'>Antarctica</option>
                     <option value='Asia'>Asia</option>
@@ -35,11 +42,20 @@ export default function Menu({menu}){
             <div className='box'>
                 <label>Activities : </label>
                     <select name='activity' className='input' onSelect={handleSelect}>
-                        <option value='runing'>Running</option>
-                        <option value='siding'>Riding</option>
-                        <option value='swimming'>Swimming</option>
+                        {activities?.map((p)=>{
+                            return <option key={p.id} value={p.name}>{p.name}</option>
+                        })}
                     </select>
             </div>
+
+            {/* <div className='box'>
+                <label>Activities by season: </label>
+                    <select name='activity' className='input' onSelect={handleSelect}>
+                        {seasonSinDuplicado.map((p)=>{
+                               return <option key={p} value={p}>{p}</option>
+                        })}
+                    </select>
+            </div> */}
             
             <div className='box'>
             <label>Sort : </label>
