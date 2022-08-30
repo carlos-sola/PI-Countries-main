@@ -53,10 +53,10 @@ const rootReducers =(state=initialState,action)=>{
         case FILTERED:
             const all = state.allCountries;
             const filteredByContinent= state.filter.continent === "" ? all : all.filter(e=>{
-                return e.continent.map(g=>g).includes(state.filter.continent) 
+                return e.continent.includes(state.filter.continent) 
             });
             const filteredByActivity= state.filter.activity === "" ? filteredByContinent : filteredByContinent.filter(e=>{
-                return e.activity.map(g=>g).includes(state.filter.activity) 
+                return e.activities.map(g=>g.name).includes(state.filter.activity) 
             })
 
             return {

@@ -31,7 +31,7 @@ export default function CreateActivity  () {
         season:[],
         country:[]
     });
-
+    
     function handleChange (e){
         setNewActivity({
             ...newActivity,
@@ -70,6 +70,7 @@ export default function CreateActivity  () {
         e.preventDefault();
         if(!Object.keys(errors).length){
         dispatch(createActivity(newActivity));
+        console.log(newActivity)
         setNewActivity({
             name:"",
             hardness:"",
@@ -79,6 +80,7 @@ export default function CreateActivity  () {
         });
         alert('successfully created');
         history.push('/home')
+        // history.push('/home')
     }else{
         alert ('Error! The activity is not created')
     };

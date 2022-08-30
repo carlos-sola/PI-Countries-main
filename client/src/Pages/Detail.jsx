@@ -48,6 +48,9 @@ export default function Detail(){
                 <p className='p-info'>Subregion: {detail?.subregion}</p>
                 <p className='p-info'>Area: {detail?.area? detail.area:''} km</p>
                 <p className='p-info'>Population: {detail?.population? detail.population:''} h</p>
+                <p className='p-info'>Activity: {detail?.activities? detail.activities.map((e,g)=>{
+                    return <span key={g}>{e.name} -</span>
+                }):''}</p>
             </div>
             
         </div>

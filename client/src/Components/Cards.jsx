@@ -31,6 +31,11 @@ export default function Cards (){
             </div>
         )
     }
+    if(!showCountries?.length){
+        return <div className='cards-wrapper' ><h2 className="cargando1">Country not found!</h2>
+        </div>
+    }
+   
 
     return (
         <div className='all'>
@@ -42,6 +47,7 @@ export default function Cards (){
                 name={p.name} 
                 image={p.image}
                 continent={p.continent}
+                activity={p.activities}
                 />  
                 </Link>
             })}

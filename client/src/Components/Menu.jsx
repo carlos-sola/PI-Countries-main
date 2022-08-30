@@ -41,7 +41,8 @@ export default function Menu({menu}){
             
             <div className='box'>
                 <label>Activities : </label>
-                    <select name='activity' className='input' onSelect={handleSelect}>
+                    <select name='activity' className='input' onChange={handleSelect}>
+                        <option>-Select-</option> 
                         {activities?.map((p)=>{
                             return <option key={p.id} value={p.name}>{p.name}</option>
                         })}
