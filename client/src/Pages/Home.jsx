@@ -13,14 +13,13 @@ export default function Home(){
     const {filter, allCountries}= useSelector(state=>state)
 
     useEffect(()=> {
-        if (!allCountries.length) {
             dispatch(getAllCountries());
             dispatch(setLoading(true));
-        }
-    },[allCountries])
+    },[])
     useEffect(()=>{
         dispatch(filtered())
-    },[filter])
+    },[filter,allCountries]);
+
     useEffect(()=>{
         dispatch(getAllActivity());
     },[])

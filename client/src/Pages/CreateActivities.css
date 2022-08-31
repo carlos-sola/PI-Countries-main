@@ -1,5 +1,5 @@
 .create-videogame{
-    background-image: url("../assets/fono-countries-02.jpg");
+    background-image: url("https://www.caf.com/media/3337680/pixabay-rio-de-janeiro-1024x682.jpeg");
     background-position: center;
     background-size: 100%;
     min-height: 100vh;
@@ -13,41 +13,58 @@
     font-style:inherit;
     padding-left: 200px;
     padding-right: 200px;
+    overflow-y: scroll;
+}
+.create-videogame::-webkit-scrollbar {
+    display: none;
 }
 .encabezado{
-    background-color: rgba(175, 175, 175, 0.603) ;
-    color: #222d3a ;
+    background-color:rgba(0, 0, 0, 0.822)  ;
+    color: rgb(206, 205, 205) ;
     border-radius: 16px;
     padding: 8px;
     padding-left: 8px;
     padding-right: 8px;
-    margin-bottom: 28px;
+    margin-bottom: 18px;
 }
 .formulario{
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    background-color: rgba(175, 175, 175, 0.603);
-    color: #222d3a ;
+    background-color: rgba(0, 0, 0, 0.822);
+    color: rgb(206, 205, 205) ;
     padding-top: 22px;
     padding-left: 12px;
     padding-right: 18px;
     border-radius: 12px;
-    min-height: 280px;
-    max-width: 400px;
+    max-width: 800px;
+    max-height: 85vh;
+    min-height: 55vh ;
+    min-width: 450px;
+    overflow-y: scroll;
 }
+.formulario::-webkit-scrollbar {
+    display: none;
+}
+
 .input-container{
     display: flex;
     align-items: center;
-    padding-bottom: 24px;
+    padding-top: 16px;
+}
+.input-container1{
+    display: flex;
+    align-items: center;
+    padding-bottom: 1px;
+    margin-bottom: 1px;
 }
 .input-form{
     margin-left: 12px;
-    background-color:rgba(134, 133, 133, 0.404) ;
-    color: #222d3a ;
+    background-color:rgba(54, 54, 54, 0.404) ;
+    color: rgb(206, 205, 205) ;
     border-radius: 8px;
     padding-left: 8px;
-    margin-right: 200px;
+    margin-right: 12px;
 }
 .btn-crear{
     background-color:#224061 ;
@@ -101,29 +118,46 @@
 }
 .platform-Label{
     display: flex;
-    margin: 10px;
+    margin: 2px;
     background-color:rgba(46, 48, 49, 0.795) ;
     color: whitesmoke;
     border-radius: 5px;
     align-items: center;
     justify-content: center;
     padding-left: 5px;
+    height: 22px;
 
     
 }
 .delete-buton-label{
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background-color:rgb(151, 17, 17) ;
-    border-color: rgb(151, 17, 17);
-    padding: 2px;
+    border:none;
+    padding-bottom: 3px;
     margin: 5px;
     color: whitesmoke;
     font-size: x-small;
-    border-radius: 5px;
+    border-radius: 2px;
+    height: 12px;
+    width: 12px;
 }
 .input-country{
-    background-color:rgba(134, 133, 133, 0.404) ;
-    color: #222d3a ;
+    background-color:rgba(54, 54, 54, 0.404) ;
+    color: rgb(206, 205, 205) ;
     border-radius: 8px;
     padding-left: 8px;
     width: 150px;
+    padding-left: 4px;
+    margin-left: 12px;
+}
+.texterr{
+    color: rgb(182, 21, 21);
+    font-size: 13px;
+    font-weight: 650;
+}
+.hrs{
+    font-size: 12px;
+    font-weight: 500;
 }

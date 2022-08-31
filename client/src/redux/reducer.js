@@ -11,7 +11,6 @@ const initialState={
         activity:'',
     },
     activities:[]
- //TODO: como filtrar por varios continentes a la vez
 };
 
 const rootReducers =(state=initialState,action)=>{
@@ -74,8 +73,8 @@ const rootReducers =(state=initialState,action)=>{
             }
         
         case SORT_A_Z:
-                const allSort = state.allCountries
-                const sortAz = action.payload==='Z-A' ? allSort.sort((a,b)=>{
+                const allSort = state.showCountries
+                const sortAz =  action.payload==="" ? allSort  : action.payload==='Z-A' ? allSort.sort((a,b)=>{
                     let A = a.name.toLowerCase();
                     let B = b.name.toLowerCase();
                     if(A == B) {

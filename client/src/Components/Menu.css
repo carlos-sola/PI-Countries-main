@@ -30,7 +30,7 @@
     background-color: #222d3a ;
     height: 40px;
     margin: 0.5px;
-    padding:14px;
+    padding:2px;
 }
 .Filter-reset{
     border-radius: 6px;
@@ -69,4 +69,12 @@
     margin: 0px;
     font-size: 14px;
     box-shadow: none;
+}
+.filter-order{
+    display: flex;
+    flex-direction: column;
+    justify-content:left;
+    align-items: flex-start;
+    margin-top: 16px;
+    margin-bottom: 16px;
 }

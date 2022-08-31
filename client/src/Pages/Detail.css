@@ -15,7 +15,7 @@
     align-items: center;
     background-color: rgba(0, 0, 0, 0.644);
     margin-top: 12px;
-    height: 530px ;
+    height: 560px ;
     margin-left: 330px;
     margin-right: 330px;
     border-radius: 12px;
@@ -55,4 +55,7 @@
 }
 .link-btn{
     text-decoration: none;
+}
+.idc{
+    margin:4px
 }

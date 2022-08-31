@@ -47,7 +47,7 @@ export default function Cards (){
                 name={p.name} 
                 image={p.image}
                 continent={p.continent}
-                activity={p.activities}
+                // activity={p.activities}
                 />  
                 </Link>
             })}

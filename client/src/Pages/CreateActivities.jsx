@@ -17,13 +17,13 @@ export default function CreateActivity  () {
         } else if (!newAct.season.length) {
             errors.season = "Complete season"
         } else if (!newAct.country.length) {
-            errors.country = "Complete country"
+            errors.country = "Add a country"
         }
         return errors
     }
     const history = useHistory()
     const dispatch = useDispatch()
-    const[errors,setErrors] = useState()
+    const[errors,setErrors] = useState({})
     const [newActivity,setNewActivity] = useState({
         name:"",
         hardness:"",
@@ -68,9 +68,8 @@ export default function CreateActivity  () {
     }
     function handleSubmit(e){
         e.preventDefault();
-        if(!Object.keys(errors).length){
+        if(newActivity.name !== ""){
         dispatch(createActivity(newActivity));
-        console.log(newActivity)
         setNewActivity({
             name:"",
             hardness:"",
@@ -82,7 +81,7 @@ export default function CreateActivity  () {
         history.push('/home')
         // history.push('/home')
     }else{
-        alert ('Error! The activity is not created')
+        alert ('At least the name is required! The activity is not created')
     };
 };
 
@@ -109,29 +108,32 @@ if(A < B) {
         <h4 className='encabezado'>Create Activity</h4>
         <div className="titulo-create">
             <form className='formulario' onSubmit={(e)=>handleSubmit(e)}>
-            <div className='input-container'>
-            <label className="name-form"> Name: </label>
-            <input className="input-form" type="text" name="name" value={newActivity.name} onChange={handleChange} required/>
-            </div>
+                <div className='input-container1'>
+                    <label className="name-form"> Name: </label>
+                    <input className="input-form" type="text" name="name" value={newActivity.name} onChange={handleChange} />
+                </div> 
+                <div className='input-container1'>{errors?.name && <p className='texterr'>* {errors.name}</p>}</div>
+                
             <div className='input-container'>
             <label className="name-form"> Hardness: </label>
-            <input className="input-form" type="number" name="hardness" value={newActivity.hardness} min={0} max={5} onChange={handleChange} required/>
+            <input className="input-form" type="number" name="hardness" value={newActivity.hardness} min={0} max={5} onChange={handleChange} />
             </div>
 
             <div className='input-container'>
-            <label className="name-form">Duration: </label>
-            <input className="input-form" type="number" name="duration" value={newActivity.duration} min={0} max={24} onChange={handleChange} required/>
+            <label className="name-form">Duration : </label>
+            <input className="input-form" type="number" name="duration" value={newActivity.duration} min={0} max={48} onChange={handleChange} />
+            <p className='hrs'>(hours)</p>
             </div>
 
             <div className='input-container'>
             <label className="name-form"> Season: </label>
-            <select className="input-form"  name="season"  onChange={(e)=>handleSelect(e)} required>
-                <option>-Select-</option>
+            <select className="input-form"  name="season"  onChange={(e)=>handleSelect(e)} >
                 <option key='spring' value='spring'>spring</option>
                 <option key='sumer' value='summer'>summer</option>
                 <option key='autumn' value='autumn'>autumn</option>
                 <option key='winter' value='winter'>winter</option>
             </select>
+            </div>
             <div className="container-platform-label">
             { newActivity.season.map((el)=>{
                 return <div className="platform-Label"> 
@@ -140,15 +142,16 @@ if(A < B) {
                 </div>
             })}
             </div>
-            </div>
+            
             <div className='input-container'>
             <label className="name-form"> Country: </label>
-            <select className="input-country"  name="country"  onChange={(e)=>handleSelect(e)} required>
+            <select className="input-country"  name="country"  onChange={(e)=>handleSelect(e)} >
                 {showCountries?.map((d)=>{
                     return <option key={d.name} value={d.name}>{d.name}</option>
                 })
             }
             </select>
+            </div>
             <div className="container-platform-label">
             { newActivity.country.map((el)=>{
                 return <div className="platform-Label"> 
@@ -157,11 +160,12 @@ if(A < B) {
                 </div>
             })}
             </div>
-            </div>
+
+         
 
             <div className='input-container'>
                 <Link to="/home" className='linkbt'><button className='buton-atras'>Back</button></Link>
-                <button type="submit" className='btn-crear'>Create</button>
+                <button type="submit" className='btn-crear' disabled={Object.keys(errors).length > 0}>Create</button>
             </div>
             </form>
         </div>

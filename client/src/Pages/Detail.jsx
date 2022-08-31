@@ -37,7 +37,8 @@ export default function Detail(){
         </div> 
         <div className='detail-container'>
             <img src={detail?.image? detail.image:'searching...'}/>
-            <h4>{detail?.name? detail.name:''}</h4>
+            <h5 className='idc'>{detail?.id? detail.id:''}</h5>
+            <h4 className='idc'>{detail?.name? detail.name:'Country'}</h4>
             <div className='info-detail'>
                 <p className='p-info'>Continent: {detail?.continent? detail.continent.map((e,g)=>{
                     return <span key={g}>{e} </span>
@@ -47,9 +48,14 @@ export default function Detail(){
                 }):''}</p>
                 <p className='p-info'>Subregion: {detail?.subregion}</p>
                 <p className='p-info'>Area: {detail?.area? detail.area:''} km</p>
-                <p className='p-info'>Population: {detail?.population? detail.population:''} h</p>
-                <p className='p-info'>Activity: {detail?.activities? detail.activities.map((e,g)=>{
-                    return <span key={g}>{e.name} -</span>
+                <p className='p-info'>Population: {detail?.population? detail.population:''}</p>
+                <p className='p-info'>Activities: {detail?.activities? detail.activities.map((e,g)=>{
+                    return (<div>
+                        <span key={g} className='idc'>-{e.name} :</span>
+                            <span key={g.season} className='idc' > season ({e.season?.join(" ")}) </span>
+                            <span key={g.herdness} className='idc' >hardness: {e.hardness} </span>
+                            <span key={g.duration} className='idc'>duration: {e.duration} hs </span>
+                    </div>)
                 }):''}</p>
             </div>
             

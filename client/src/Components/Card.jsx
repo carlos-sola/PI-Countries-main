@@ -10,9 +10,9 @@ export default function Card ({id,name,image,continent,capital,subregion,area,po
               <p className='p-info'>{continent?.map(p=>{
                   return <span key={p}>{p}</span>
               })}</p>
-               <p className='p-info'>Activity: {activity?.map(p=>{
-                  return <span key={p}> {p.name} -</span>
-              })}</p>
+               {/* <p className='p-info'>Activity: {activity?.map(p=>{ */}
+                  {/* return <span key={p}> {p.name} -</span>
+              })}</p> */}
               <p>{id}</p>   
             </div>  
         </div>

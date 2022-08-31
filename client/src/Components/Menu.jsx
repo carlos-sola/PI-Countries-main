@@ -24,11 +24,11 @@ export default function Menu({menu}){
     return  (
     <div className={`menu-container ${menu ? "open" : ""}`}> 
             <h5 className='title-f'>Filters</h5>
-            
+            <div className='filter-order'>
             <div className='box'>
                 <label>Continents : </label>
                 <select name='continent' className='input' onChange={handleSelect}>   
-                    <option>-Select-</option> 
+                    <option value=''>Default</option> 
                     <option value='Africa'>Africa</option>
                     <option value='Antarctica'>Antarctica</option>
                     <option value='Asia'>Asia</option>
@@ -42,7 +42,7 @@ export default function Menu({menu}){
             <div className='box'>
                 <label>Activities : </label>
                     <select name='activity' className='input' onChange={handleSelect}>
-                        <option>-Select-</option> 
+                        <option value=''>Default</option> 
                         {activities?.map((p)=>{
                             return <option key={p.id} value={p.name}>{p.name}</option>
                         })}
@@ -61,11 +61,14 @@ export default function Menu({menu}){
             <div className='box'>
             <label>Sort : </label>
             <select className='input' onChange={handleOnChange}>
+                <option value="">-Select-</option>
                 <option value='A-Z'>A-Z</option>
                 <option value='Z-A'>Z-A</option>
                 <option value='ascPopulation'>Population asc</option>
                 <option value='descPopulation'>Population dec</option>
             </select>
+            </div>
+            
             </div>
             
             <div className='box'>
