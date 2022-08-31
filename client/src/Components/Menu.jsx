@@ -9,9 +9,9 @@ export default function Menu({menu}){
     function handleSelect(e){
         dispatch(setFilter({[e.target.name]:e.target.value}));
     }
-    function handleOnChange (e){
-        dispatch(sortAtoZ(e.target.value))
-    }
+    // function handleOnChange (e){
+    //     dispatch(sortAtoZ(e.target.value))
+    // }
     function handleReset(){
         dispatch (resetFilter())
     }
@@ -60,7 +60,7 @@ export default function Menu({menu}){
             
             <div className='box'>
             <label>Sort : </label>
-            <select className='input' onChange={handleOnChange}>
+            <select name='sort' className='input' onChange={handleSelect}>
                 <option value="">-Select-</option>
                 <option value='A-Z'>A-Z</option>
                 <option value='Z-A'>Z-A</option>

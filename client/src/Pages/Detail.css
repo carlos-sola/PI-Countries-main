@@ -20,6 +20,7 @@
     margin-right: 330px;
     border-radius: 12px;
     padding-left: 30px;
+    padding-right: 30px;
 }
 .detail-container:hover{
     background-color: rgba(0, 0, 0, 0.788);

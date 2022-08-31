@@ -9,6 +9,7 @@ const initialState={
     filter:{
         continent:'',
         activity:'',
+        sort:''
     },
     activities:[]
 };
@@ -57,50 +58,21 @@ const rootReducers =(state=initialState,action)=>{
             const filteredByActivity= state.filter.activity === "" ? filteredByContinent : filteredByContinent.filter(e=>{
                 return e.activities.map(g=>g.name).includes(state.filter.activity) 
             });
-
-            return {
-                ...state,
-                showCountries:[...filteredByActivity]
-            }
-        case RESET_FILTER:
-            return{
-                ...state,
-                filter:{
-                    continent:'',
-                    activity:'',
-                }
-                
-            }
-        
-        case SORT_A_Z:
-                const allSort = state.showCountries
-                const sortAz =  action.payload==="" ? allSort  : action.payload==='Z-A' ? allSort.sort((a,b)=>{
+            const sortAz =  state.filter.sort==="" ? filteredByActivity : state.filter.sort==='Z-A' ? filteredByActivity.sort((a,b)=>{
+                let A = a.name.toLowerCase();
+                let B = b.name.toLowerCase();
+                if(A == B) {
+                    return 0; 
+                  }
+                if(A > B) {
+                    return -1;
+                  }
+                  if(A < B) {
+                    return 1;
+                  }
+                  }) : state.filter.sort==='A-Z' ? filteredByActivity.sort((a,b)=>{
                     let A = a.name.toLowerCase();
                     let B = b.name.toLowerCase();
-                    if(A == B) {
-                        return 0; 
-                      }
-                    if(A > B) {
-                        return -1;
-                      }
-                      if(A < B) {
-                        return 1;
-                      }
-                      }) : action.payload==='A-Z' ? allSort.sort((a,b)=>{
-                        let A = a.name.toLowerCase();
-                        let B = b.name.toLowerCase();
-                    if(A == B) {
-                        return 0; 
-                      }
-                    if(A < B) {
-                        return -1;
-                      }
-                      if(A > B) {
-                        return 1;
-                      }
-                }) : action.payload==='ascPopulation' ?  allSort.sort((a,b)=>{
-                    let A = a.population
-                    let B = b.population
                 if(A == B) {
                     return 0; 
                   }
@@ -110,23 +82,101 @@ const rootReducers =(state=initialState,action)=>{
                   if(A > B) {
                     return 1;
                   }
-            }) : action.payload==='descPopulation' &&  allSort.sort((a,b)=>{
+            }) : state.filter.sort==='ascPopulation' ?  filteredByActivity.sort((a,b)=>{
                 let A = a.population
                 let B = b.population
             if(A == B) {
                 return 0; 
               }
-            if(A > B) {
+            if(A < B) {
                 return -1;
               }
-              if(A < B) {
+              if(A > B) {
                 return 1;
               }
-        })
-                return {
-                    ...state,
-                    showCountries: [...sortAz]
-                } 
+        }) : state.filter.sort==='descPopulation' &&  filteredByActivity.sort((a,b)=>{
+            let A = a.population
+            let B = b.population
+        if(A == B) {
+            return 0; 
+          }
+        if(A > B) {
+            return -1;
+          }
+          if(A < B) {
+            return 1;
+          }
+    })
+            return {
+                ...state,
+                showCountries:[...sortAz]
+            }
+        case RESET_FILTER:
+            return{
+                ...state,
+                filter:{
+                    continent:'',
+                    activity:'',
+                    sort:'',
+                }
+                
+            }
+        
+        // case SORT_A_Z:
+        //         const allSort = state.showCountries
+        //         const sortAz =  action.payload==="" ? allSort  : action.payload==='Z-A' ? allSort.sort((a,b)=>{
+        //             let A = a.name.toLowerCase();
+        //             let B = b.name.toLowerCase();
+        //             if(A == B) {
+        //                 return 0; 
+        //               }
+        //             if(A > B) {
+        //                 return -1;
+        //               }
+        //               if(A < B) {
+        //                 return 1;
+        //               }
+        //               }) : action.payload==='A-Z' ? allSort.sort((a,b)=>{
+        //                 let A = a.name.toLowerCase();
+        //                 let B = b.name.toLowerCase();
+        //             if(A == B) {
+        //                 return 0; 
+        //               }
+        //             if(A < B) {
+        //                 return -1;
+        //               }
+        //               if(A > B) {
+        //                 return 1;
+        //               }
+        //         }) : action.payload==='ascPopulation' ?  allSort.sort((a,b)=>{
+        //             let A = a.population
+        //             let B = b.population
+        //         if(A == B) {
+        //             return 0; 
+        //           }
+        //         if(A < B) {
+        //             return -1;
+        //           }
+        //           if(A > B) {
+        //             return 1;
+        //           }
+        //     }) : action.payload==='descPopulation' &&  allSort.sort((a,b)=>{
+        //         let A = a.population
+        //         let B = b.population
+        //     if(A == B) {
+        //         return 0; 
+        //       }
+        //     if(A > B) {
+        //         return -1;
+        //       }
+        //       if(A < B) {
+        //         return 1;
+        //       }
+        // })
+        //         return {
+        //             ...state,
+        //             showCountries: [...sortAz]
+        //         } 
         case GET_ALL_ACTIVITIES :
             return{
                 ...state,
