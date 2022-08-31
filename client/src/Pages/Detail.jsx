@@ -49,14 +49,15 @@ export default function Detail(){
                 <p className='p-info'>Subregion: {detail?.subregion}</p>
                 <p className='p-info'>Area: {detail?.area? detail.area:''} km</p>
                 <p className='p-info'>Population: {detail?.population? detail.population:''}</p>
-                <p className='p-info'>Activities: {detail?.activities? detail.activities.map((e,g)=>{
-                    return (<div>
-                        <span key={g} className='idc'>-{e.name} :</span>
-                            <span key={g.season} className='idc' > season ({e.season?.join(" ")}) </span>
-                            <span key={g.herdness} className='idc' >hardness: {e.hardness} </span>
-                            <span key={g.duration} className='idc'>duration: {e.duration} hs </span>
+                <p className='p-info'>Activities:</p>
+                {detail?.activities? detail.activities.map((e,g)=>{
+                    return (<div key={g}>
+                        <span  className='idc'>-{e.name} :</span>
+                            <span className='idc' > season ({e.season?.join(" ")}) </span>
+                            <span className='idc' >hardness: {e.hardness} </span>
+                            <span className='idc'>duration: {e.duration} hs </span>
                     </div>)
-                }):''}</p>
+                }):''}
             </div>
             
         </div>

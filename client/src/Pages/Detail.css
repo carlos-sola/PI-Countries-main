@@ -19,6 +19,7 @@
     margin-left: 330px;
     margin-right: 330px;
     border-radius: 12px;
+    padding-left: 30px;
 }
 .detail-container:hover{
     background-color: rgba(0, 0, 0, 0.788);

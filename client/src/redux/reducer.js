@@ -56,7 +56,7 @@ const rootReducers =(state=initialState,action)=>{
             });
             const filteredByActivity= state.filter.activity === "" ? filteredByContinent : filteredByContinent.filter(e=>{
                 return e.activities.map(g=>g.name).includes(state.filter.activity) 
-            })
+            });
 
             return {
                 ...state,
