@@ -61,7 +61,7 @@ export default function Menu({menu}){
             <div className='box'>
             <label>Sort : </label>
             <select name='sort' className='input' onChange={handleSelect}>
-                <option value="">-Select-</option>
+                <option value="">Default</option>
                 <option value='A-Z'>A-Z</option>
                 <option value='Z-A'>Z-A</option>
                 <option value='ascPopulation'>Population asc</option>

@@ -9,7 +9,8 @@ const initialState={
     filter:{
         continent:'',
         activity:'',
-        sort:''
+        sort:'',
+        name:''
     },
     activities:[]
 };
@@ -52,7 +53,10 @@ const rootReducers =(state=initialState,action)=>{
             }
         case FILTERED:
             const all = state.allCountries;
-            const filteredByContinent= state.filter.continent === "" ? all : all.filter(e=>{
+            const nameFilter = state.filter.name==='' ? all : all.filter(e=>{
+                return e.name.toLowerCase().includes(state.filter.name.toLocaleLowerCase())
+            })
+            const filteredByContinent= state.filter.continent === "" ? nameFilter : nameFilter.filter(e=>{
                 return e.continent.includes(state.filter.continent) 
             });
             const filteredByActivity= state.filter.activity === "" ? filteredByContinent : filteredByContinent.filter(e=>{
@@ -106,7 +110,9 @@ const rootReducers =(state=initialState,action)=>{
           if(A < B) {
             return 1;
           }
-    })
+    }) 
+        
+        
             return {
                 ...state,
                 showCountries:[...sortAz]
@@ -118,6 +124,7 @@ const rootReducers =(state=initialState,action)=>{
                     continent:'',
                     activity:'',
                     sort:'',
+                    name:''
                 }
                 
             }
